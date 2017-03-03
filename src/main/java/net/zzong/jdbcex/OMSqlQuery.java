@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by 김종인 on 2017-03-02.
  */
-public class JongSqlQuery<T> extends SqlQuery {
+public class OMSqlQuery<T> extends SqlQuery {
 
     private Class<T> clazz;
 

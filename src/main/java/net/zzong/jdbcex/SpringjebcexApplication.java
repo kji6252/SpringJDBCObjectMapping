@@ -4,10 +4,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.SqlParameterValue;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
+import java.sql.Types;
 
 @SpringBootApplication
 public class SpringjebcexApplication {
@@ -25,17 +27,12 @@ public class SpringjebcexApplication {
 	}
 
 	@Bean
-	public JongSqlQueryExample genericSqlQueryExample(){
-		return new JongSqlQueryExample();
-	}
-
-	@Bean
-	CommandLineRunner run (JongSqlQueryExample jongSqlQueryExample){
-		return args -> {
-			System.out.println("헬로월드");
-
-			jongSqlQueryExample.runExample();
-
-		};
+	public OMSqlQuery<User> omSqlQuery(DataSource dataSource){
+		OMSqlQuery<User> omSqlQuery = new OMSqlQuery<>();
+		omSqlQuery.setClazz(User.class);
+		omSqlQuery.setDataSource(dataSource);
+		omSqlQuery.setSql("select * from users where id = ?");
+		omSqlQuery.declareParameter(new SqlParameterValue(Types.BIGINT, "id"));
+		return omSqlQuery;
 	}
 }

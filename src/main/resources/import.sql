@@ -16,6 +16,6 @@
 
 create table USERS (id int8 primary key auto_increment, name varchar, email varchar, regdt DATE );
 
-insert into USERS (name, email, regdt) values ('철수', 'asdf@sdf.as', SYSDATE);
-insert into USERS (name, email, regdt) values ('영희', 'asdf@sdf.as', SYSDATE);
-insert into USERS (name, email, regdt) values ('길동', 'asdf@sdf.as', SYSDATE);
+insert into USERS (name, email, regdt) values ('철수', 'avc@naver.com', SYSDATE);
+insert into USERS (name, email, regdt) values ('영희', 'swdasd@gmail.com', SYSDATE);
+insert into USERS (name, email, regdt) values ('길동', 'lakjklsjd@sdfhanmail.net', SYSDATE);
